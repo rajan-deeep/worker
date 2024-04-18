@@ -5,6 +5,8 @@ services:
     image: redis
     ports:
       - "6379:6379"
+    networks:
+      - redubble-network
 
   main-server:
     build:
@@ -13,4 +15,10 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - redis
+      - redis-1
+    networks:
+      - redubble-network
+
+networks:
+  redubble-network:
+    driver: bridge

@@ -18,19 +18,19 @@ import java.util.concurrent.Executors;
 
 @SpringBootApplication
 @RestController
-public class Main {
+public class WorkerCumServer {
 
     private final RedissonClient redisson;
 
-    public Main() {
+    public WorkerCumServer() {
         // Initialize Redisson client
         Config config = new Config();
-        config.useSingleServer().setAddress("redis://localhost:6379");
+        config.useSingleServer().setAddress("redis://redis-1:6379");
         redisson = Redisson.create(config);
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(Main.class, args);
+        SpringApplication.run(WorkerCumServer.class, args);
     }
 
     @Component
