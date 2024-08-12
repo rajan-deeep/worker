@@ -5,4 +5,4 @@ how to run?
 4. hit api 
 curl --location 'localhost:8080/push' \
 --header 'Content-Type: application/json' \
---data 'random1'
+--data 'first message'
